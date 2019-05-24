@@ -29,3 +29,16 @@
       <div *ngIf="!myForm.valid" class="alert alert-danger">Il form non è valido</div>
       <button class="bg-primary text-white btn btn-block mb-4" type="submit" [disabled]="!myForm.valid">Submit</button>
     </form>
+
+  <ul>
+    <li *ngFor="let post of posts" class="bg-info text-white">
+
+      <span >{{post.dataInsrimento}}-{{post.titolo}}-{{post.testo}}-{{post.userName}}</span>
+      <ul>
+        <li *ngFor="let ris of post.risposte" class="bg-danger text-white">
+           <span >{{ris.dataInsrimento}}-{{ris.titolo}}-{{ris.testo}}-{{ris.userName}}</span>
+        </li>
+      </ul>
+
+    </li>
+  </ul>
