@@ -1,4 +1,4 @@
- <h1>INSERISCI UN POST</h1>
+ <p>INSERISCI UN COMMENTO</p>
  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" >
 
 
@@ -29,17 +29,3 @@
       <div *ngIf="!myForm.valid" class="alert alert-danger">Il form non è valido</div>
       <button class="bg-primary text-white btn btn-block mb-4" type="submit" [disabled]="!myForm.valid">Submit</button>
     </form>
-
-  <ul>
-    <li *ngFor="let post of posts" class="bg-info text-white">
-
-      <span >{{post.dataInsrimento}}-{{post.titolo}}-{{post.testo}}-{{post.userName}}</span>
-      <app-commento [posts]="post.risposte"></app-commento>
-      <ul>
-        <li *ngFor="let ris of post.risposte" class="bg-danger text-white">
-           <span >{{ris.dataInsrimento}}-{{ris.titolo}}-{{ris.testo}}-{{ris.userName}}</span>
-        </li>
-      </ul>
-
-    </li>
-  </ul>

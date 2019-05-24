@@ -4,11 +4,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { BachecaCommentiComponent } from './bacheca-commenti/bacheca-commenti.component';
 import {  FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { CommentoComponent } from './commento/commento.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BachecaCommentiComponent
+    BachecaCommentiComponent,
+    CommentoComponent
   ],
   imports: [
     BrowserModule,NgbModule,FormsModule, ReactiveFormsModule

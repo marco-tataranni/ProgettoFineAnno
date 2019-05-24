@@ -5,7 +5,7 @@
 
 
               Nome
-          <input type="text" class="form-control" onfocus="this.value=''" placeholder="nome" name="nome" [formControl]="myForm.controls['nome']">
+              <input type="text" class="form-control" onfocus="this.value=''" placeholder="nome" name="nome" [formControl]="myForm.controls['nome']">
               <div *ngIf="!myForm.controls['nome'].valid" class="alert alert-danger">"nome" non è valido</div>
               <div *ngIf="myForm.controls['nome'].hasError('required')" class="alert alert-danger">"nome" è richiesto</div>
 
