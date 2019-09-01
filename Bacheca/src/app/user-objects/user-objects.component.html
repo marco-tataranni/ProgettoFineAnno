@@ -1,0 +1,9 @@
+<h4> TUTTI I TUOI OGGETTI</h4>
+<br>
+  <ul class="oggetti">
+    <li *ngFor="let oggetto of oggetti" class="bg-warning text-white">
+
+
+      <span *ngIf="controllo(oggetto.proprietario)" >     {{oggetto.nome}} {{oggetto.descrizione}}<br>{{oggetto.prezzo}}<br> {{oggetto.proprietario}}</span>
+    </li>
+  </ul>

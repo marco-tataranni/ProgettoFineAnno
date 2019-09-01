@@ -1,0 +1,35 @@
+<h1 > INSERISCI UN OGGETTO</h1>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" >
+
+
+              Nome
+              <input type="text" class="form-control" onfocus="this.value=''" placeholder="nome" name="nome" [formControl]="myForm.controls['nome']">
+              <div *ngIf="!myForm.controls['nome'].valid && (myForm.controls['nome'].dirty || myForm.controls['nome'].touched)" class="alert alert-danger">"nome" non è valido</div>
+              <div *ngIf="myForm.controls['nome'].hasError('required')&& (myForm.controls['nome'].dirty || myForm.controls['nome'].touched)" class="alert alert-danger">"nome" è richiesto</div>
+
+
+              Descrizione
+              <input type="text" class="form-control" onfocus="this.value=''" placeholder="descrizione"  name="descrizione" [formControl]="myForm.controls['descrizione']">
+              <div *ngIf="!myForm.controls['descrizione'].valid && (myForm.controls['descrizione'].dirty || myForm.controls['descrizione'].touched)" class="alert alert-danger">"descrizione" non è valido</div>
+              <div *ngIf="myForm.controls['descrizione'].hasError('required') && (myForm.controls['descrizione'].dirty || myForm.controls['descrizione'].touched)" class="alert alert-danger">"descrizione" è richiesto</div>
+
+          Prezzo
+          <input type="text" class="form-control mb-4" onfocus="this.value=''" placeholder="xx,xx€" name="prezzo" [formControl]="myForm.controls['prezzo']">
+          <div *ngIf="!myForm.controls['prezzo'].valid && (myForm.controls['prezzo'].dirty || myForm.controls['prezzo'].touched)" class="alert alert-danger">"prezzo" non è valido</div>
+          <div *ngIf="myForm.controls['prezzo'].hasError('required') && (myForm.controls['prezzo'].dirty || myForm.controls['prezzo'].touched)" class="alert alert-danger">"prezzo" è richiesto</div>
+          Link
+          <input type="text" class="form-control mb-4" onfocus="this.value=''" placeholder="link" name="link" [formControl]="myForm.controls['link']">
+          <div *ngIf="!myForm.controls['link'].valid && (myForm.controls['link'].dirty || myForm.controls['link'].touched)" class="alert alert-danger">"link" non è valido</div>
+          <div *ngIf="myForm.controls['link'].hasError('required') && (myForm.controls['link'].dirty || myForm.controls['link'].touched)" class="alert alert-danger">"link" è richiesto</div>
+
+
+
+
+
+      <div *ngIf="!myForm.valid" class="alert alert-danger">Il form non è valido</div>
+      <button class="bg-primary text-white btn btn-block mb-4" type="submit" [disabled]="!myForm.valid">Submit</button>
+    </form>
+
+    <app-objects-list [oggetti]="oggetti"></app-objects-list>
+    <app-user-objects [oggetti]="oggetti" [defUser]="defUser"></app-user-objects>
+

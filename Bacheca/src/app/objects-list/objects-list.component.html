@@ -1,0 +1,9 @@
+<h4> TUTTI GLI OGGETTI</h4>
+<br>
+  <ul class="oggetti">
+    <li *ngFor="let oggetto of oggetti" class="bg-success text-white">
+
+
+      <span >{{oggetto.nome}} {{oggetto.descrizione}}<br>{{oggetto.prezzo}}<br> {{oggetto.proprietario}}</span>
+    </li>
+  </ul>

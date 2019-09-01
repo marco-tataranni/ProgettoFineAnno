@@ -1,4 +1,7 @@
-<div *ngIf="!show">
+
+<button *ngIf="!show && !show1" class="bg-primary text-white btn btn-block" type="submit" (click)="showlogin()" >LOGIN</button>
+<button *ngIf="!show && show1" class="bg-primary text-white btn btn-block" type="submit" (click)="showregistrazione()" >REGISTRATI</button>
+<div *ngIf="!show && !show1">
   <h1>REGISTRATI</h1>
 
   <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" >
@@ -6,27 +9,27 @@
 
               Nome
               <input type="text" class="form-control" onfocus="this.value=''" placeholder="nome" name="nome" [formControl]="myForm.controls['nome']">
-              <div *ngIf="!myForm.controls['nome'].valid" class="alert alert-danger">"nome" non è valido</div>
-              <div *ngIf="myForm.controls['nome'].hasError('required')" class="alert alert-danger">"nome" è richiesto</div>
+              <div *ngIf="!myForm.controls['nome'].valid && (myForm.controls['nome'].dirty || myForm.controls['nome'].touched)" class="alert alert-danger">"nome" non è valido</div>
+              <div *ngIf="myForm.controls['nome'].hasError('required')&& (myForm.controls['nome'].dirty || myForm.controls['nome'].touched)" class="alert alert-danger">"nome" è richiesto</div>
 
 
               Cognome
               <input type="text" class="form-control" onfocus="this.value=''" placeholder="cognome"  name="cognome" [formControl]="myForm.controls['cognome']">
-              <div *ngIf="!myForm.controls['cognome'].valid" class="alert alert-danger">"cognome" non è valido</div>
-              <div *ngIf="myForm.controls['cognome'].hasError('required')" class="alert alert-danger">"cognome" è richiesto</div>
+              <div *ngIf="!myForm.controls['cognome'].valid && (myForm.controls['cognome'].dirty || myForm.controls['cognome'].touched)" class="alert alert-danger">"cognome" non è valido</div>
+              <div *ngIf="myForm.controls['cognome'].hasError('required') && (myForm.controls['cognome'].dirty || myForm.controls['cognome'].touched)" class="alert alert-danger">"cognome" è richiesto</div>
 
           E-mail
           <input type="email" class="form-control mb-4" onfocus="this.value=''" placeholder="esempio@email.it" name="email" [formControl]="myForm.controls['email']">
-          <div *ngIf="!myForm.controls['email'].valid" class="alert alert-danger">"email" non è valido</div>
-          <div *ngIf="myForm.controls['email'].hasError('required')" class="alert alert-danger">"email" è richiesto</div>
+          <div *ngIf="!myForm.controls['email'].valid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)" class="alert alert-danger">"email" non è valido</div>
+          <div *ngIf="myForm.controls['email'].hasError('required') && (myForm.controls['email'].dirty || myForm.controls['email'].touched)" class="alert alert-danger">"email" è richiesto</div>
           Username
           <input type="text" class="form-control mb-4" onfocus="this.value=''" placeholder="username" name="user" [formControl]="myForm.controls['user']">
-          <div *ngIf="!myForm.controls['email'].valid" class="alert alert-danger">"username" non è valido</div>
-          <div *ngIf="myForm.controls['email'].hasError('required')" class="alert alert-danger">"username" è richiesto</div>
+          <div *ngIf="!myForm.controls['user'].valid && (myForm.controls['user'].dirty || myForm.controls['user'].touched)" class="alert alert-danger">"username" non è valido</div>
+          <div *ngIf="myForm.controls['user'].hasError('required') && (myForm.controls['user'].dirty || myForm.controls['user'].touched)" class="alert alert-danger">"username" è richiesto</div>
           Password
           <input type="password" class="form-control mb-4" onfocus="this.value=''" placeholder="xxxxxxxxxx" name="password" [formControl]="myForm.controls['password']">
-          <div *ngIf="!myForm.controls['email'].valid" class="alert alert-danger">"password" non è valido</div>
-          <div *ngIf="myForm.controls['email'].hasError('required')" class="alert alert-danger">"password" è richiesto</div>
+          <div *ngIf="!myForm.controls['password'].valid && (myForm.controls['password'].dirty || myForm.controls['password'].touched)" class="alert alert-danger">"password" non è valido</div>
+          <div *ngIf="myForm.controls['password'].hasError('required') && (myForm.controls['password'].dirty || myForm.controls['password'].touched)" class="alert alert-danger">"password" è richiesto</div>
 
 
 
@@ -35,7 +38,30 @@
       <button class="bg-primary text-white btn btn-block mb-4" type="submit" [disabled]="!myForm.valid">Submit</button>
     </form>
 </div>
+<div *ngIf="!show && show1">
+  <form [formGroup]="logForm" (ngSubmit)="logSubmit(logForm.value)">
+          Username
+          <input type="text" class="form-control mb-4" onfocus="this.value=''" placeholder="username" name="user" [formControl]="logForm.controls['user']">
+          <div *ngIf="!logForm.controls['user'].valid && (logForm.controls['user'].dirty || logForm.controls['user'].touched)" class="alert alert-danger">"username" non è valido</div>
+          <div *ngIf="logForm.controls['user'].hasError('required') && (logForm.controls['user'].dirty || logForm.controls['user'].touched)" class="alert alert-danger">"username" è richiesto</div>
+          Password
+          <input type="password" class="form-control mb-4" onfocus="this.value=''" placeholder="xxxxxxxxxx" name="password" [formControl]="logForm.controls['password']">
+          <div *ngIf="!logForm.controls['password'].valid && (logForm.controls['password'].dirty || logForm.controls['password'].touched)" class="alert alert-danger">"password" non è valido</div>
+          <div *ngIf="logForm.controls['password'].hasError('required') && (logForm.controls['password'].dirty || logForm.controls['password'].touched)" class="alert alert-danger">"password" è richiesto</div>
+          <div *ngIf="show2" class="alert alert-danger">credenziali errate</div>
+
+
+
+
+      <div *ngIf="!logForm.valid" class="alert alert-danger">Il form non è valido</div>
+      <button class="bg-primary text-white btn btn-block mb-4" type="submit" [disabled]="!logForm.valid">LOGIN</button>
+  </form>
+</div>
 
   <div *ngIf="show">
-    <app-bacheca-commenti></app-bacheca-commenti>
+    <button  class="bg-primary text-white btn btn-block" type="submit" (click)="logout()" >LOG OUT</button>
+    <app-new-object  [defUser]="defUser"></app-new-object>
+    <app-view-utenti [utenti]="utenti"></app-view-utenti>
+    <app-bacheca-commenti [defUser]="defUser"></app-bacheca-commenti>
+
   </div>

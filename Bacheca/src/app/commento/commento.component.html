@@ -4,23 +4,23 @@
 
               Data
               <input type="text" class="form-control" onfocus="this.value=''" placeholder="dd month yyyy" name="data" [formControl]="myForm.controls['data']">
-              <div *ngIf="!myForm.controls['data'].valid" class="alert alert-danger">"data" non è valido</div>
-              <div *ngIf="myForm.controls['data'].hasError('required')" class="alert alert-danger">"data" è richiesto</div>
+              <div *ngIf="!myForm.controls['data'].valid && (myForm.controls['data'].dirty || myForm.controls['data'].touched)" class="alert alert-danger">"data" non è valido</div>
+              <div *ngIf="myForm.controls['data'].hasError('required') && (myForm.controls['data'].dirty || myForm.controls['data'].touched)" class="alert alert-danger">"data" è richiesto</div>
 
 
               Titolo
               <input type="text" class="form-control" onfocus="this.value=''" placeholder="titolo"  name="titolo" [formControl]="myForm.controls['titolo']">
-              <div *ngIf="!myForm.controls['titolo'].valid" class="alert alert-danger">"titolo" non è valido</div>
-              <div *ngIf="myForm.controls['titolo'].hasError('required')" class="alert alert-danger">"titolo" è richiesto</div>
+              <div *ngIf="!myForm.controls['titolo'].valid && (myForm.controls['titolo'].dirty || myForm.controls['titolo'].touched)" class="alert alert-danger">"titolo" non è valido</div>
+              <div *ngIf="myForm.controls['titolo'].hasError('required')&& (myForm.controls['titolo'].dirty || myForm.controls['titolo'].touched)" class="alert alert-danger">"titolo" è richiesto</div>
 
           Testo
           <input type="text" class="form-control mb-4" onfocus="this.value=''" placeholder="testo" name="testo" [formControl]="myForm.controls['testo']">
-          <div *ngIf="!myForm.controls['testo'].valid" class="alert alert-danger">"testo" non è valido</div>
-          <div *ngIf="myForm.controls['testo'].hasError('required')" class="alert alert-danger">"testo" è richiesto</div>
+          <div *ngIf="!myForm.controls['testo'].valid && (myForm.controls['testo'].dirty || myForm.controls['testo'].touched)" class="alert alert-danger">"testo" non è valido</div>
+          <div *ngIf="myForm.controls['testo'].hasError('required')&& (myForm.controls['testo'].dirty || myForm.controls['testo'].touched)" class="alert alert-danger">"testo" è richiesto</div>
           Username
           <input type="text" class="form-control mb-4" onfocus="this.value=''" placeholder="username" name="user" [formControl]="myForm.controls['user']">
-          <div *ngIf="!myForm.controls['user'].valid" class="alert alert-danger">"username" non è valido</div>
-          <div *ngIf="myForm.controls['user'].hasError('required')" class="alert alert-danger">"username" è richiesto</div>
+          <div *ngIf="!myForm.controls['user'].valid && (myForm.controls['user'].dirty || myForm.controls['user'].touched)" class="alert alert-danger">"username" non è valido</div>
+          <div *ngIf="myForm.controls['user'].hasError('required') && (myForm.controls['user'].dirty || myForm.controls['user'].touched)" class="alert alert-danger">"username" è richiesto</div>
 
 
 

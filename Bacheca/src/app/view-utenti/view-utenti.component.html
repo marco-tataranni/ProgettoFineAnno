@@ -1,0 +1,9 @@
+<h4>TUTTI GLI UTENTI</h4>
+<br>
+  <ul class="utenti">
+    <li *ngFor="let utente of utenti" class="bg-info text-white">
+
+
+      <span >{{utente.user}} {{utente.email}}--> {{utente.nome}} {{utente.cognome}}</span>
+    </li>
+  </ul>
