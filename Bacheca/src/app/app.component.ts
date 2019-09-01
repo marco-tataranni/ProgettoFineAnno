@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {  FormBuilder,FormGroup, Validators} from '@angular/forms';
 import {Utente}from './utente';
 import {Utenti} from './mock-utenti';
+import {Oggetti} from './mock-oggetti';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,6 +17,7 @@ export class AppComponent {
     show1: boolean=false;
     defUser:string="";
     show2: boolean=false;
+    oggetti=Oggetti;
 
     constructor(fb:FormBuilder)
     {

@@ -9,7 +9,7 @@ import {Oggetti} from '../mock-oggetti';
 })
 export class NewObjectComponent implements OnInit {
   myForm: FormGroup;
-  oggetti= Oggetti;
+  @Input() oggetti= Oggetti;
   @Input() defUser:string;
   constructor(fb:FormBuilder)
     {

@@ -60,8 +60,8 @@
 
   <div *ngIf="show">
     <button  class="bg-primary text-white btn btn-block" type="submit" (click)="logout()" >LOG OUT</button>
-    <app-new-object  [defUser]="defUser"></app-new-object>
+    <app-new-object  [defUser]="defUser" [oggetti]="oggetti"></app-new-object>
     <app-view-utenti [utenti]="utenti"></app-view-utenti>
-    <app-bacheca-commenti [defUser]="defUser"></app-bacheca-commenti>
+    <app-bacheca-commenti [defUser]="defUser" [oggetti]="oggetti"></app-bacheca-commenti>
 
   </div>

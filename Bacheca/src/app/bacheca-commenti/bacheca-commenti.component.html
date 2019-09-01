@@ -15,11 +15,24 @@
               <div *ngIf="!myForm.controls['titolo'].valid && (myForm.controls['titolo'].dirty || myForm.controls['titolo'].touched)" class="alert alert-danger">"titolo" non è valido</div>
               <div *ngIf="myForm.controls['titolo'].hasError('required') && (myForm.controls['titolo'].dirty || myForm.controls['titolo'].touched)" class="alert alert-danger">"titolo" è richiesto</div>
 
+              Oggetto
+              <select  [formControl]="myForm.controls['oggetto']">
+
+              <option *ngFor="let oggetto of oggetti"  value=oggetto.nome><span *ngIf="controllo(oggetto.proprietario)"> {{oggetto.nome}}</span>
+
+
+
+              </select><br>
+              <div *ngIf="!myForm.controls['oggetto'].valid && (myForm.controls['oggetto'].dirty || myForm.controls['oggetto'].touched)" class="alert alert-danger">"oggetto" non è valido</div>
+              <div *ngIf="myForm.controls['oggetto'].hasError('required') && (myForm.controls['oggetto'].dirty || myForm.controls['oggetto'].touched)" class="alert alert-danger">"oggetto" è richiesto</div>
           Testo
           <input type="text" class="form-control mb-4" onfocus="this.value=''" placeholder="testo" name="testo" [formControl]="myForm.controls['testo']">
           <div *ngIf="!myForm.controls['testo'].valid && (myForm.controls['testo'].dirty || myForm.controls['testo'].touched)" class="alert alert-danger">"testo" non è valido</div>
           <div *ngIf="myForm.controls['testo'].hasError('required') && (myForm.controls['testo'].dirty || myForm.controls['testo'].touched)" class="alert alert-danger">"testo" è richiesto</div>
-
+          Numero Post
+          <input type="text" class="form-control mb-4" onfocus="this.value=''" placeholder="numero" name="numero" [formControl]="myForm.controls['numero']">
+          <div *ngIf="!myForm.controls['numero'].valid && (myForm.controls['numero'].dirty || myForm.controls['numero'].touched)" class="alert alert-danger">"numero" non è valido</div>
+          <div *ngIf="myForm.controls['numero'].hasError('required') && (myForm.controls['numero'].dirty || myForm.controls['numero'].touched)" class="alert alert-danger">"numero" è richiesto</div>
 
 
 
@@ -32,7 +45,7 @@
   <ul>
     <li *ngFor="let post of posts" class="bg-info text-white">
 
-      <span >{{post.dataInsrimento}}-{{post.titolo}}-{{post.testo}}-{{post.userName}}</span>
+      <span >{{post.dataInsrimento}}<br>{{post.titolo}}---{{post.testo}}<br>{{post.userName}}</span>
       <app-commento [posts]="post.risposte"></app-commento>
       <ul>
         <li *ngFor="let ris of post.risposte" class="bg-danger text-white">
